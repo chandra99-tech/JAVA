@@ -1,79 +1,78 @@
+package bean;
+
 import java.util.Date;
 
 public class Student {
-	private int id;
-	private String name;
+    private int id;
+    private String name;
     private float m1;
     private float m2;
-    private Date bdate;
-    
-    //default constructor 
+    private Date birthDate;
+
     public Student() {
-    	System.out.println("In student default constructor");
-    	id=0;
-    	name=null;
-    	m1=0.0f;
-    	m2=0.0f;
-    	bdate=null;
+        this.id = 0;
+        this.name = "";
+        this.m1 = 0.0f;
+        this.m2 = 0.0f;
+        this.birthDate = new Date();
     }
-    
-    //parametrised constructor
-    //1 implicit(this) 5 explicit
-    public Student(int id,String nm,float m1,float m2,Date bdt) {
-    	System.out.println("In student parametrised constructor");
-    	this.id=id;
-    	name=nm;
-    	this.m1=m1;
-    	this.m2=m2;
-    	bdate=bdt;
+
+    public Student(int id, String name, float m1, float m2, Date birthDate) {
+        this.id = id;
+        this.name = name;
+        this.m1 = m1;
+        this.m2 = m2;
+        this.birthDate = birthDate;
     }
-    
-    //setter methods
+
+    // Setters
     public void setId(int id) {
-    	this.id=id;
+        this.id = id;
     }
-    public void setName(String s) {
-    	this.name=s;
+
+    public void setName(String name) {
+        this.name = name != null ? name : "";
     }
+
     public void setM1(float m1) {
-    	this.m1=m1;
+        this.m1 = m1;
     }
+
     public void setM2(float m2) {
-    	this.m2=m2;
+        this.m2 = m2;
     }
-    public void setBDate(Date d) {
-    	this.bdate=d;
+
+    public void setBirthDate(Date birthDate) {
+        this.birthDate = birthDate != null ? birthDate : new Date();
     }
-    
-    //getter methods
+
+    // Getters
     public int getId() {
-    	return id;
+        return id;
     }
+
     public String getName() {
-    	return name;
+        return name;
     }
+
     public float getM1() {
-    	return m1;
+        return m1;
     }
+
     public float getM2() {
-    	return m2;
+        return m2;
     }
-    public Date getBDate() {
-    	return bdate;
+
+    public Date getBirthDate() {
+        return birthDate;
     }
-    //1 implicit (this) 0 explicit
-   /* public void display() {
-    	System.out.println("Id : "+this.id);
-    	System.out.println("Name : "+this.name);
-    	System.out.println("M1 : "+m1);
-    	System.out.println("M2 : "+m2);
-    	System.out.println("BirthDate  : "+bdate);
-    }*/
-    
-  public String toString() {
-    	System.out.println("tostring method of student called");
-    	return "Id: "+id+" Name: "+name+" M1:"+m1+" M2:"+m2+" Bdate:"+bdate;
+
+    @Override
+    public String toString() {
+        return String.format("ID: %d, Name: %s, Marks1: %.2f, Marks2: %.2f, Birth Date: %s",
+                id, name, m1, m2, birthDate);
     }
-    
-    
 }
+    
+
+
